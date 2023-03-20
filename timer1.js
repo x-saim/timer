@@ -15,13 +15,13 @@ args = args.slice(2); //reassigning array to args and ignoring the  node executa
 
 const alarmClock = (time) => {
   
-  if (!args.length) { //check to see if numbers are provided.
+  if (!time.length) { //check to see if numbers are provided.
     console.log("Error: No numbers provided.");
     return;
   }
 
   //looping through args array that consists of arguments passed to the CLI.
-  for (const e of args) {
+  for (const e of time) {
 
     //if argument is a number and positive, the app will execute the beeping sound at the time set out.
     if (!isNaN(e) && e > 0) {
@@ -41,4 +41,4 @@ const alarmClock = (time) => {
   }
 };
 
-alarmClock();
+alarmClock(args);
