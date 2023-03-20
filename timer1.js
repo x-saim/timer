@@ -9,6 +9,7 @@ Goal:
 The app will make a BEEP sound at the alotted time as passed.
 
 */
+
 let args = process.argv;
 args = args.slice(2); //reassigning array to args and ignoring the  node executable and file path.
 
@@ -20,18 +21,22 @@ const alarmClock = (time) => {
     return;
   }
 
+  //looping through args array that consists of arguments passed to the CLI.
   for (const e of args) {
-    if (typeof e === "number" && e > 0) {
+
+    //if argument is a number and positive, the app will execute the beeping sound at the time set out.
+    if (!isNaN(e) && e > 0) {
       setTimeout(() => {
         process.stdout.write('\x07');
         process.stdout.write(`${e} seconds`);
-        process.stdout.write("\n");
-      },e * 1000);
+        process.stdout.write("\n"); //will create a new line.
+      },e * 1000); //convert argument to ms.
+
       //checks if an input is a negative number.
-    } else if (e < 0) {
-      console.log("Error: You have provided a negative number. Please provide a positive number instead.");
+    } else if (e <= 0) {
+      console.log("Error: You have provided a negative number or zero. Please provide a positive number instead.");
       //checks if an input is not a number.
-    } else if (typeof e !== "number") {
+    } else if (isNaN(e)) {
       console.log("Error: You have not provided a number. Alarm clock only accepts positive number values.");
     }
   }
