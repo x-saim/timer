@@ -1,12 +1,11 @@
 /*
 Simple Alarm Clock App
 ---------------------
+Implementation:
+An alarm clock / timer which will beep after a specified amount of time has passed. The user can specify an unlimited number of alarms using command line arguments
 
 How to run:
-node [positive number]
-
-Goal:
-The app will make a BEEP sound at the alotted time as passed.
+$ node timer1.js [positive number]
 
 */
 
